@@ -39,7 +39,7 @@ while 1:
             
             if xprev==0 and yprev==0:
                 xprev,yprev = x,y 
-            cv2.line(image,(xprev,yprev),(x,y),(255,255,255),8)
+            
             cv2.line(writingpad,(xprev,yprev),(x,y),(255,255,255),8)
             xprev,yprev = x,y 
 
