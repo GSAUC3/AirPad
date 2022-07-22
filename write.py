@@ -1,15 +1,6 @@
 import handMediapipe as hm 
 import cv2,numpy as np
-
-
-def convolution(image):
-    kernel = np.zeros((160,160),dtype=np.uint8)
-    kernel[2:-2,2:-2]=1
-    ans = (kernel*image).sum()/25218
-    np.set_printoptions(threshold=np.inf)
-    if ans>10:
-        return True
-    return False
+import Model
 
 
 def draw_grid(image,size=80*2):
@@ -26,6 +17,7 @@ cap = cv2.VideoCapture(0)
 writingpad = np.zeros((480,640,3),np.uint8)
 xprev,yprev =0,0
 var = hm.handTrack(1)
+
 while 1:
     # i=0
     _, frame = cap.read()
@@ -54,18 +46,15 @@ while 1:
             writingpad[:,:,:] = 0
          
 
-   
-
-
-    # i+=1
     image = cv2.addWeighted(image,0.5,writingpad,0.6,0.0)
     # merging the two images (i.e., writing pad and the actual image)
     image= draw_grid(image)
     cv2.imshow('output',cv2.cvtColor(image,cv2.COLOR_BGR2RGB))
-    # cv2.imshow('output2',writingpad)
+
     if cv2.waitKey(1)== ord('s'):
-        cv2.imwrite('applePie.jpg',writingpad)
-        
+        # cv2.imwrite('applePie.jpg',writingpad)
+        print(' '.join(Model.sliding_window(writingpad)))
+
     elif cv2.waitKey(1)==27:
         break
 

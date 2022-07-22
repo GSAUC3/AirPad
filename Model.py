@@ -28,20 +28,9 @@ class Cnet(nn.Module):
         x = self.convlayers(x)
         x = torch.flatten(x,1)
         x = self.classifier(x)
-        # x = self.classifier(x.view(-1,16*32))
         return x
 
 classes = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-
-# image = im.open('applePie.jpg')
-image = im.open('pach.jpg')
-imagearray = np.asarray(image)
-
-x,y = 0,160
-crop = imagearray[x:x+160,y:y+160]
-
-crop= im.fromarray(crop)
-c =crop.resize((28,28), im.ANTIALIAS)
 
 
 model = Cnet()
@@ -50,12 +39,35 @@ model.load_state_dict(torch.load('./trainedmodel/model.pth'))
 def predict(image_array):
     model.eval()
     
-    datapoint = torch.from_numpy(np.asarray(image_array))
+    crop= im.fromarray(image_array)
+    crop =crop.resize((28,28), im.ANTIALIAS)
+    datapoint = torch.from_numpy(np.asarray(crop))
     datapoint = datapoint.permute(2,0,1)
     datapoint = datapoint.unsqueeze(0)
     out = model(datapoint.float())
     out = nn.functional.softmax(out,1)
     
-    print(classes[out.argmax(1).item()])
+    return classes[out.argmax(1).item()]
 
-predict(c)
+
+def sliding_window(image):
+    imgStack =[]
+    letters = []
+
+    x,y = 0,0
+    height,width,_= image.shape
+    stride = width//4
+    # print(f'height {height} width {width} stride {stride}')
+    for x in range(2):
+        for y in range(4):
+            imgStack.append(image[x*stride:(x+1)*stride,y*stride:(y+1)*stride])
+
+    for i in imgStack:  
+        # print(i.shape)
+        if np.sum(i)>10:
+            pred = predict(i)
+            letters.append(pred)
+
+    return letters
+
+
