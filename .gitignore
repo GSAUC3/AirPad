@@ -1,7 +1,5 @@
 dataset/
-trainedmodel/
-npy_data/
-nice.ipynb
+__pycache__/
 shinchan.jpg
 main.py
 test.ipynb

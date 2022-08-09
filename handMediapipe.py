@@ -33,7 +33,7 @@ def change_res(cap,width, height):
 class handTrack:
 
     def __init__(self,maxHands=2,mode=False,
-              min_detection_confidence=0.5, min_tracking_confidence=0.5,draw=True) -> None:
+              min_detection_confidence=0.7, min_tracking_confidence=0.5,draw=True) -> None:
         '''
         maxHands : max number of hands to be detected 
         mode : static_image_mode set to FALSE by default which means 
@@ -55,7 +55,9 @@ class handTrack:
 
         self.mpHands = mp.solutions.hands
 
-        self.hands = self.mpHands.Hands(self.mode,self.maxHands,self.mdc,self.mtc)
+        self.hands = self.mpHands.Hands(model_complexity=0,
+    min_detection_confidence=self.mdc,
+    min_tracking_confidence=self.mtc)
 
         if draw:
             self.drawHands = mp.solutions.drawing_utils

@@ -2,39 +2,41 @@ import torch
 from torch import nn 
 from PIL import Image as im 
 import numpy as np
+from torchvision import models
 
-class Cnet(nn.Module):
+# https://github.com/GSAUC3/
+
+class Cnn(nn.Module):
     def __init__(self) -> None:
-        super(Cnet,self).__init__()
-        self.convlayers = nn.Sequential(
-                nn.Conv2d(3,8,(5,5),(1,1),padding=0),
-                nn.ReLU(), # max(0,x)
-                nn.MaxPool2d(2,2,0),#12
+        super(Cnn,self).__init__()
 
-                nn.Conv2d(8,16,3,1,0),#10
-                nn.ReLU(),
-                nn.MaxPool2d(2,2,0),#5
+        self.conv = nn.Sequential(
+            nn.Conv2d(3,64,5,1), 
+            nn.ReLU(), # 24x 24
+            nn.MaxPool2d(2,2), # 16x 12 x 12
 
-                nn.Conv2d(16,32,3,1,0),
-                nn.ReLU()      #4          
-        )
-        self.classifier = nn.Sequential(
-            nn.Linear(in_features=9*32,out_features=256,bias=True),
+            nn.Conv2d(64,128,3), 
             nn.ReLU(),
-            nn.Linear(256,66,bias=True)
+            nn.MaxPool2d(2,2), # 32x5x5
+
+            nn.Conv2d(128,128,5), # 64x 1x14
+            nn.ReLU(),
+
+            nn.Conv2d(128,36,1,1) # 10x1x1
+            
         )
-    
     def forward(self,x):
-        x = self.convlayers(x)
-        x = torch.flatten(x,1)
-        x = self.classifier(x)
+        x = self.conv(x)
         return x
 
-classes = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+model =  Cnn()
+
+classes = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B',
+ 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
+  'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
 
-model = Cnet()
-model.load_state_dict(torch.load('./trainedmodel/model.pth'))
+model.load_state_dict(torch.load('trainedmodel/model.pth'))
 
 def predict(image_array):
     model.eval()
