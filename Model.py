@@ -69,6 +69,8 @@ def sliding_window(image):
         if np.sum(i)>10:
             pred = predict(i)
             letters.append(pred)
+        else:
+            letters.append(' ')
 
     return letters
 

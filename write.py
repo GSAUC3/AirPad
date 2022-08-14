@@ -37,10 +37,7 @@ while 1:
 
         elif a['index']==1 and a['middle']==1 and a['ring']==0:
             xprev,yprev =0,0
-        elif a['index']==1 and a['middle']==1 and a['ring']==1:
 
-            pad = cv2.cvtColor(writingpad,cv2.COLOR_BGR2GRAY)
- 
             
         if a['index']==1 and a['middle']==1 and a['ring']==1 and a['pinky']==1 and a['thumb']==1:
             writingpad[:,:,:] = 0
@@ -51,9 +48,10 @@ while 1:
     image= draw_grid(image)
     cv2.imshow('output',cv2.cvtColor(image,cv2.COLOR_BGR2RGB))
 
+    # if a['index']==0 and a['middle']==0 and a['ring']==0 and a['pinky']==0 and a['thumb']==0:
+        
     if cv2.waitKey(1)== ord('s'):
-        # cv2.imwrite('applePie.jpg',writingpad)
-        print(' '.join(Model.sliding_window(writingpad)))
+        print(''.join(Model.sliding_window(writingpad)))
 
     elif cv2.waitKey(1)==27:
         break
