@@ -64,7 +64,7 @@ class window:
         else:
             date_time = self.now.strftime("%H%M%S-%d-%m-%Y")
             with open(f'{date_time}.txt','w') as f:
-                f.write('bal')
+                f.write(self.text)
             
             messagebox.showinfo('Text Saved',f"Text saved as {date_time}.txt")
 

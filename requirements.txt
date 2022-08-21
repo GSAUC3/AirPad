@@ -1,0 +1,6 @@
+torch
+torchvision
+easyocr
+ttkbootstrap
+opencv-python
+mediapipe
