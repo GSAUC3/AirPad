@@ -1,7 +1,7 @@
 import handMediapipe as hm 
 import cv2,numpy as np
 import Model
-
+from easyocr import Reader
 
 def draw_grid(image,size=80*2):
     '''
@@ -17,7 +17,7 @@ cap = cv2.VideoCapture(0)
 writingpad = np.zeros((480,640,3),np.uint8)
 xprev,yprev =0,0
 var = hm.handTrack(1)
-
+reader = Reader(['en'])
 while 1:
     # i=0
     _, frame = cap.read()
@@ -52,7 +52,6 @@ while 1:
         
     if cv2.waitKey(1)== ord('s'):
         print(''.join(Model.sliding_window(writingpad)))
-
     elif cv2.waitKey(1)==27:
         break
 
