@@ -65,12 +65,12 @@ def sliding_window(image):
             imgStack.append(image[x*stride:(x+1)*stride,y*stride:(y+1)*stride])
 
     for i in imgStack:  
-        # print(i.shape)
         if np.sum(i)>10:
             pred = predict(i)
             letters.append(pred)
         else:
-            letters.append(' ')
+            letters.append('')
+            # letters.append(' ')
 
     return letters
 

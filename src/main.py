@@ -20,6 +20,19 @@ class window:
         self.root.bind("<q>",lambda x:self.root.quit()) #press q to quit
         self.root.bind("<s>",lambda x:self.predicshun()) #press q to quit
         
+        self.grid=False
+
+        menu= Menu(self.root)
+        self.file = Menu(menu)
+        self.file.add_command(label='8 Letters Mode',command=self.__draw_grid)
+        self.file.add_command(label='Single Letter Mode',command=self.__nogrid)
+        # self.file.add_command(label='Save Writing Image',command=pass)
+        # self.file.add_command(label='Save Full Image',command=pass)
+        self.file.add_separator()
+        self.file.add_command(label='Exit', command=self.root.quit)
+        menu.add_cascade(label='File', menu=self.file)
+        self.root.config(menu=menu)
+
 
         self.l1=ttk.Label(self.root)
         self.l1.pack()
@@ -29,6 +42,12 @@ class window:
 
         self.l2=ttk.Label(self.root)
         self.l2.pack()
+
+    def __draw_grid(self):
+        self.grid=True 
+
+    def __nogrid(self):
+        self.grid=False
 
     def draw_grid(self,image,size=80*2):
         '''
@@ -71,7 +90,8 @@ class window:
                 
 
             image = cv2.addWeighted(image,0.5,self.writingpad,0.6,0.0)
-            image= self.draw_grid(image)
+            if self.grid:
+                image= self.draw_grid(image)
 
 
 
@@ -82,8 +102,12 @@ class window:
         self.root.after(10,self.update)
 
     def predicshun(self):
-        letters = Model.sliding_window(self.writingpad)
-        self.l2.config(text=''.join(letters))
+        if self.grid:
+            letters = Model.sliding_window(self.writingpad)
+            self.l2.config(text=''.join(letters))
+        else:
+            letter = Model.predict(self.writingpad)
+            self.l2.config(text=letter)
 
 if __name__ == '__main__':
     win=Style(theme='darkly').master
