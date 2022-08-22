@@ -7,6 +7,15 @@ This application will help you write in the air. Doesn't sound convincing? Maybe
 <img src="https://github.com/GSAUC3/AirPad/blob/master/icon/airpad.gif">
 
 
+### Keyboard Shortcuts
+
+|Key|Event|
+|:---:|:---:|
+|Esc|Quit|
+|s|Predict word/letters|
+|Ctrl+s|Save the text prediction|
+|Ctrl+e|Save the image file|
+
 
 |Writing Mode OFF|Screen Clear Mode (gesture)|Writing Mode ON|
 |:-------:|:--------:|:------:|
