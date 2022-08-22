@@ -8,6 +8,6 @@ This application will help you write in the air. Doesn't sound convincing? Maybe
 
 
 
-|Writing Mode OFF|Writing Mode ON|Screen Clear Mode (gesture)|
+|Writing Mode OFF|Screen Clear Mode (gesture)|Writing Mode ON|
 |:-------:|:--------:|:------:|
 |<img src="https://github.com/GSAUC3/AirPad/blob/master/icon/ss1.png" width ="250" height ="250"> |<img src="https://github.com/GSAUC3/AirPad/blob/master/icon/ss2.png" width ="250" height ="250">|<img src="https://github.com/GSAUC3/AirPad/blob/master/icon/ss3.png" width ="250" height ="250"> |
