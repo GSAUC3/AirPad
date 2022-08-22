@@ -1,13 +1,34 @@
-## Air Pad
+# Air Pad
 
-This application will help you write in the air. Doesn't sound convincing? Maybe the demonstration below might change your perception. 
+This GUI application will help you write in the air. Doesn't sound convincing? Maybe the demonstration below might change your perception. 
 
-### Demonstration
+You can even save the raw text image as png file and extract the text file after writing each word. (as shown in the demo)
 
-<img src="https://github.com/GSAUC3/AirPad/blob/master/icon/airpad.gif">
+## RUN the main.py after installing all the dependencies. 
+
+### Demonstration 
+Click the gif below to watch this video on Youtube.
+
+### Keyboard Shortcuts
+
+|Key|Event|
+|:---:|:---:|
+|Esc|Quit|
+|s|Predict word/letters|
+|Ctrl+s|Save the text prediction|
+|Ctrl+e|Save the image file|
+
+=======
+<a href="https://youtu.be/ho-_FFX9GWc"><img src="https://github.com/GSAUC3/AirPad/blob/master/icon/airpad.gif" ></a>
 
 ***
 
+### Tech Stake used
+- OpenCV
+- PyTorch
+- Mediapipe
+- easyocr
+- ttkboorstrap
 
 |Writing Mode OFF|Screen Clear Mode (gesture)|Writing Mode ON|
 |:-------:|:--------:|:------:|
