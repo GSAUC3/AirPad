@@ -2,3 +2,5 @@ dataset/
 __pycache__/
 shinchan.jpg
 test.ipynb
+*.txt
+

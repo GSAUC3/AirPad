@@ -130,7 +130,7 @@ class window:
         else:
             letters = self.reader.readtext(self.writingpad,detail=0)
             self.l2.config(text=' '.join(letters))
-            self.text += ' '.join(letters)
+            self.text += ' '.join(letters) +' '
 
 if __name__ == '__main__':
     win=Style(theme='darkly').master
