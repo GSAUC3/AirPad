@@ -18,8 +18,9 @@ Click the gif below to watch this video on Youtube.
 |Ctrl+s|Save the text prediction|
 |Ctrl+e|Save the image file|
 
-=======
-<a href="https://youtu.be/ho-_FFX9GWc"><img src="https://github.com/GSAUC3/AirPad/blob/master/icon/airpad.gif" ></a>
+***
+![WhatsApp Video 2022-10-31 at 23 10 28](https://user-images.githubusercontent.com/55054089/199088375-b4b69578-3af9-4d2f-8913-ff48bd08933c.gif)
+
 
 ***
 
