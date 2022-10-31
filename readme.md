@@ -1,6 +1,6 @@
 # Air Pad
 
-This GUI application will help you write in the air. Doesn't sound convincing? Maybe the demonstration below might change your perception. 
+This GUI application will help you write in the air. Cool right? Check the demonstration below. 
 
 You can even save the raw text image as png file and extract the text file after writing each word. (as shown in the demo)
 
