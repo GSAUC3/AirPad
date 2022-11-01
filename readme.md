@@ -4,6 +4,9 @@ This GUI application will help you write in the air. Cool right? Check the demon
 
 You can even save the raw text image as png file and extract the text file after writing each word. (as shown in the demo)
 
+## Check out our blog on medium.com 
+Click this link -> <a href="https://medium.com/@rajarshiban13/airpad-now-write-on-air-with-hand-gestures-3876e0007883">Airpad Blog</a>
+
 ## RUN the main.py after installing all the dependencies. 
 
 ### Demonstration 
