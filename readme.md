@@ -45,8 +45,8 @@ Click the gif below to watch this video on Youtube.
 ***
 
 Other team members who contributed to this project are:
-- Tiyasa Khan
-- Nitu Pal
+- <a href="https://www.linkedin.com/in/tiyasa-khan-6109691ab/">Tiyasa Khan</a>
+- <a href= "https://www.linkedin.com/in/nitu-pal-95270a194/">Nitu Pal</a>
 
 And Our Supervisor:
 - **Dr. Anil Kumar Gupta, Director, C-DAC, Pune.**
