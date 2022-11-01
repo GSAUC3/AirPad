@@ -42,3 +42,11 @@ Click the gif below to watch this video on Youtube.
 2. Make sure you install the packages. You can use this command, `pip install -r requirements.txt`
 3. go `src` folder and run `main.py`
 
+***
+
+Other team members who contributed to this project are:
+- Tiyasa Khan
+- Nitu Pal
+
+And Our Supervisor:
+- **Dr. Anil Kumar Gupta, Director, C-DAC, Pune.**
